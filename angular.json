@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "5bd89cc9-13e1-41d4-a0ce-8a83614223a0"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -122,6 +125,46 @@
             "production": {
               "devServerTarget": "everyday-angular-libs:serve:production"
             }
+          }
+        }
+      }
+    },
+    "@mtd/runtime-form": {
+      "projectType": "library",
+      "root": "projects/mtd/runtime-form",
+      "sourceRoot": "projects/mtd/runtime-form/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/mtd/runtime-form/tsconfig.lib.json",
+            "project": "projects/mtd/runtime-form/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/mtd/runtime-form/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/mtd/runtime-form/src/test.ts",
+            "tsConfig": "projects/mtd/runtime-form/tsconfig.spec.json",
+            "karmaConfig": "projects/mtd/runtime-form/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/mtd/runtime-form/tsconfig.lib.json",
+              "projects/mtd/runtime-form/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }

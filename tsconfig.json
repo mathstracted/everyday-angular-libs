@@ -2,6 +2,12 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "@mtd/runtime-form": [
+        "dist/mtd/runtime-form/mtd-runtime-form",
+        "dist/mtd/runtime-form"
+      ]
+    },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
